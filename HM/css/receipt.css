@@ -1,0 +1,267 @@
+/* css/receipt.css - Thermal Receipt Generator, Folio Invoicing & Printable Media */
+
+/* Thermal POS Slip Format (80mm width standard) */
+.thermal-receipt-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.thermal-slip {
+  width: 320px;
+  background-color: #FFFFFF;
+  padding: 24px 20px;
+  font-family: 'JetBrains Mono', Courier, monospace;
+  font-size: 11px;
+  color: #111111;
+  line-height: 1.4;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+  border: 1px solid #E5E7EB;
+  position: relative;
+  margin: 0 auto;
+}
+
+/* Paper Zig-Zag Top & Bottom Simulation */
+.thermal-slip::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: radial-gradient(circle, transparent, transparent 50%, #FFFFFF 50%, #FFFFFF 100%);
+  background-size: 12px 12px;
+}
+
+.thermal-header {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.thermal-logo-name {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.thermal-sub {
+  font-size: 10px;
+  color: #444444;
+}
+
+.thermal-divider {
+  border-top: 1px dashed #777777;
+  margin: 8px 0;
+}
+
+.thermal-double-divider {
+  border-top: 2px dashed #333333;
+  margin: 10px 0;
+}
+
+.thermal-meta-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3px;
+  font-size: 10.5px;
+}
+
+.thermal-items-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0;
+}
+
+.thermal-items-table th {
+  text-align: left;
+  border-bottom: 1px dashed #777777;
+  padding-bottom: 4px;
+  font-size: 10px;
+}
+
+.thermal-items-table th.col-amt {
+  text-align: right;
+}
+
+.thermal-items-table td {
+  padding: 4px 0;
+  vertical-align: top;
+  font-size: 10.5px;
+}
+
+.thermal-items-table td.col-amt {
+  text-align: right;
+}
+
+.thermal-total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 800;
+  margin: 6px 0;
+}
+
+.thermal-barcode {
+  text-align: center;
+  margin: 14px 0 8px;
+}
+
+.barcode-lines {
+  height: 36px;
+  background: repeating-linear-gradient(
+    90deg,
+    #000 0px,
+    #000 2px,
+    transparent 2px,
+    transparent 4px,
+    #000 4px,
+    #000 7px,
+    transparent 7px,
+    transparent 8px,
+    #000 8px,
+    #000 11px
+  );
+  width: 80%;
+  margin: 0 auto 4px;
+}
+
+.thermal-footer {
+  text-align: center;
+  font-size: 9.5px;
+  color: #555555;
+  margin-top: 10px;
+}
+
+/* Formal Guest Folio Statement (A4 Hotel Format) */
+.folio-printout {
+  background-color: #FFFFFF;
+  padding: 30px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+  font-family: var(--font-sans);
+  color: #111827;
+}
+
+.folio-letterhead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+.folio-hotel-name {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+}
+
+.folio-statement-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  letter-spacing: 0.5px;
+  text-align: right;
+}
+
+.folio-details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  background-color: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-bottom: 20px;
+  font-size: 0.85rem;
+}
+
+.folio-stamp-zero {
+  display: inline-block;
+  padding: 6px 14px;
+  border: 2px solid #059669;
+  color: #059669;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  border-radius: var(--radius-sm);
+  transform: rotate(-3deg);
+}
+
+/* Reporting Hub Cards & CSV Exports */
+.reports-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.export-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.export-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: var(--shadow-sm);
+}
+
+.export-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  background-color: var(--color-primary-subtle);
+  color: var(--color-primary);
+}
+
+.export-card-title {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+}
+
+.export-card-desc {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+  flex: 1;
+}
+
+/* Print Media Stylesheet */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .printable-area, .printable-area * {
+    visibility: visible;
+  }
+  .printable-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+    box-shadow: none !important;
+    border: none !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
