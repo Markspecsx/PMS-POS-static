@@ -1,2 +1,2 @@
 # PMS-POS-static
-training simulatro
+training simulator
